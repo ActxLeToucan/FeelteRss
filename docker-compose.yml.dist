@@ -1,0 +1,18 @@
+version: '3.1'
+
+services:
+  feelterss:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        NODE_VERSION: 'lts'
+    restart: always
+    ports:
+      - "13000:3000"
+    environment:
+      LOG_DIR: '/logs'
+      LOG_FORMAT: 'dev'
+      ORIGIN: '*'
+      DIRECTUS_URL:
+      DIRECTUS_TOKEN:
