@@ -2,1232 +2,1272 @@ version: 1
 directus: 11.1.0
 vendor: postgres
 collections:
-    - collection: displayableFeeds
-      meta:
-          accountability: all
-          archive_app_filter: true
-          archive_field: status
-          archive_value: archived
-          collapse: open
-          collection: displayableFeeds
-          color: null
-          display_template: null
-          group: null
-          hidden: false
-          icon: null
-          item_duplication_fields: null
-          note: null
-          preview_url: null
-          singleton: false
-          sort: null
-          sort_field: null
-          translations: null
-          unarchive_value: draft
-      schema:
-          name: displayableFeeds
-    - collection: feed
-      meta:
-          accountability: all
-          archive_app_filter: true
-          archive_field: null
-          archive_value: null
-          collapse: open
-          collection: feed
-          color: null
-          display_template: null
-          group: null
-          hidden: false
-          icon: null
-          item_duplication_fields: null
-          note: null
-          preview_url: null
-          singleton: false
-          sort: null
-          sort_field: null
-          translations: null
-          unarchive_value: null
-      schema:
-          name: feed
-    - collection: feed_feed
-      meta:
-          accountability: all
-          archive_app_filter: true
-          archive_field: null
-          archive_value: null
-          collapse: open
-          collection: feed_feed
-          color: null
-          display_template: null
-          group: null
-          hidden: true
-          icon: import_export
-          item_duplication_fields: null
-          note: null
-          preview_url: null
-          singleton: false
-          sort: null
-          sort_field: null
-          translations: null
-          unarchive_value: null
-      schema:
-          name: feed_feed
-    - collection: filter
-      meta:
-          accountability: all
-          archive_app_filter: true
-          archive_field: null
-          archive_value: null
-          collapse: open
-          collection: filter
-          color: null
-          display_template: null
-          group: null
-          hidden: false
-          icon: null
-          item_duplication_fields: null
-          note: null
-          preview_url: null
-          singleton: false
-          sort: null
-          sort_field: null
-          translations: null
-          unarchive_value: null
-      schema:
-          name: filter
+  - collection: displayableFeeds
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: status
+      archive_value: archived
+      collapse: open
+      collection: displayableFeeds
+      color: null
+      display_template: null
+      group: null
+      hidden: false
+      icon: null
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: draft
+    schema:
+      name: displayableFeeds
+  - collection: feeds
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: feeds
+      color: null
+      display_template: null
+      group: null
+      hidden: false
+      icon: null
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: null
+    schema:
+      name: feeds
+  - collection: feeds_feeds
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: feeds_feeds
+      color: null
+      display_template: null
+      group: null
+      hidden: true
+      icon: import_export
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: null
+    schema:
+      name: feeds_feeds
+  - collection: filters
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: filters
+      color: null
+      display_template: null
+      group: null
+      hidden: false
+      icon: null
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: null
+    schema:
+      name: filters
 fields:
-    - collection: displayableFeeds
+  - collection: displayableFeeds
+    field: description
+    type: text
+    meta:
+      collection: displayableFeeds
+      conditions: null
+      display: null
+      display_options: null
       field: description
-      type: text
-      meta:
-          collection: displayableFeeds
-          conditions: null
-          display: null
-          display_options: null
-          field: description
-          group: null
-          hidden: false
-          interface: input-multiline
-          note: null
-          options: null
-          readonly: false
-          required: false
-          sort: null
-          special: null
-          translations: null
-          validation: null
-          validation_message: null
-          width: full
-      schema:
-          name: description
-          table: displayableFeeds
-          data_type: text
-          default_value: null
-          max_length: null
-          numeric_precision: null
-          numeric_scale: null
-          is_nullable: true
-          is_unique: false
-          is_primary_key: false
-          is_generated: false
-          generation_expression: null
-          has_auto_increment: false
-          foreign_key_table: null
-          foreign_key_column: null
-    - collection: displayableFeeds
+      group: null
+      hidden: false
+      interface: input-multiline
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 6
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: description
+      table: displayableFeeds
+      data_type: text
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: displayableFeeds
+    field: feed
+    type: integer
+    meta:
+      collection: displayableFeeds
+      conditions: null
+      display: null
+      display_options: null
       field: feed
-      type: integer
-      meta:
-          collection: displayableFeeds
-          conditions: null
-          display: null
-          display_options: null
-          field: feed
-          group: null
-          hidden: false
-          interface: select-dropdown-m2o
-          note: null
-          options:
-              template: "[{{type}}]\_{{name}}"
-          readonly: false
-          required: false
-          sort: null
-          special:
-              - m2o
-          translations: null
-          validation: null
-          validation_message: null
-          width: full
-      schema:
-          name: feed
-          table: displayableFeeds
-          data_type: integer
-          default_value: null
-          max_length: null
-          numeric_precision: 32
-          numeric_scale: 0
-          is_nullable: true
-          is_unique: false
-          is_primary_key: false
-          is_generated: false
-          generation_expression: null
-          has_auto_increment: false
-          foreign_key_table: feed
-          foreign_key_column: id
-    - collection: displayableFeeds
+      group: null
+      hidden: false
+      interface: select-dropdown-m2o
+      note: null
+      options:
+        template: "[{{type}}]\_{{name}}"
+      readonly: false
+      required: false
+      sort: 3
+      special:
+        - m2o
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: feed
+      table: displayableFeeds
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: feeds
+      foreign_key_column: id
+  - collection: displayableFeeds
+    field: id
+    type: integer
+    meta:
+      collection: displayableFeeds
+      conditions: null
+      display: null
+      display_options: null
       field: id
-      type: integer
-      meta:
-          collection: displayableFeeds
-          conditions: null
-          display: null
-          display_options: null
-          field: id
-          group: null
-          hidden: true
-          interface: input
-          note: null
-          options: null
-          readonly: true
-          required: false
-          sort: null
-          special: null
-          translations: null
-          validation: null
-          validation_message: null
-          width: full
-      schema:
-          name: id
-          table: displayableFeeds
-          data_type: integer
-          default_value: nextval('"displayableFeeds_id_seq"'::regclass)
-          max_length: null
-          numeric_precision: 32
-          numeric_scale: 0
-          is_nullable: false
-          is_unique: true
-          is_primary_key: true
-          is_generated: false
-          generation_expression: null
-          has_auto_increment: true
-          foreign_key_table: null
-          foreign_key_column: null
-    - collection: displayableFeeds
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: displayableFeeds
+      data_type: integer
+      default_value: nextval('"displayableFeeds_id_seq"'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: displayableFeeds
+    field: status
+    type: string
+    meta:
+      collection: displayableFeeds
+      conditions: null
+      display: labels
+      display_options:
+        choices:
+          - text: $t:published
+            value: published
+            foreground: '#FFFFFF'
+            background: var(--primary)
+          - text: $t:draft
+            value: draft
+            foreground: '#18222F'
+            background: '#D3DAE4'
+          - text: $t:archived
+            value: archived
+            foreground: '#FFFFFF'
+            background: var(--warning)
+        showAsDot: true
       field: status
-      type: string
-      meta:
-          collection: displayableFeeds
-          conditions: null
-          display: labels
-          display_options:
-              choices:
-                  - text: $t:published
-                    value: published
-                    foreground: "#FFFFFF"
-                    background: var(--primary)
-                  - text: $t:draft
-                    value: draft
-                    foreground: "#18222F"
-                    background: "#D3DAE4"
-                  - text: $t:archived
-                    value: archived
-                    foreground: "#FFFFFF"
-                    background: var(--warning)
-              showAsDot: true
-          field: status
-          group: null
-          hidden: false
-          interface: select-dropdown
-          note: null
-          options:
-              choices:
-                  - text: $t:published
-                    value: published
-                  - text: $t:draft
-                    value: draft
-                  - text: $t:archived
-                    value: archived
-          readonly: false
-          required: false
-          sort: null
-          special: null
-          translations: null
-          validation: null
-          validation_message: null
-          width: full
-      schema:
-          name: status
-          table: displayableFeeds
-          data_type: character varying
-          default_value: draft
-          max_length: 255
-          numeric_precision: null
-          numeric_scale: null
-          is_nullable: false
-          is_unique: false
-          is_primary_key: false
-          is_generated: false
-          generation_expression: null
-          has_auto_increment: false
-          foreign_key_table: null
-          foreign_key_column: null
-    - collection: displayableFeeds
+      group: null
+      hidden: false
+      interface: select-dropdown
+      note: null
+      options:
+        choices:
+          - text: $t:published
+            value: published
+          - text: $t:draft
+            value: draft
+          - text: $t:archived
+            value: archived
+      readonly: false
+      required: false
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: status
+      table: displayableFeeds
+      data_type: character varying
+      default_value: draft
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: false
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: displayableFeeds
+    field: title
+    type: string
+    meta:
+      collection: displayableFeeds
+      conditions: null
+      display: null
+      display_options: null
       field: title
-      type: string
-      meta:
-          collection: displayableFeeds
-          conditions: null
-          display: null
-          display_options: null
-          field: title
-          group: null
-          hidden: false
-          interface: input
-          note: null
-          options: null
-          readonly: false
-          required: false
-          sort: null
-          special: null
-          translations: null
-          validation: null
-          validation_message: null
-          width: full
-      schema:
-          name: title
-          table: displayableFeeds
-          data_type: character varying
-          default_value: null
-          max_length: 255
-          numeric_precision: null
-          numeric_scale: null
-          is_nullable: true
-          is_unique: false
-          is_primary_key: false
-          is_generated: false
-          generation_expression: null
-          has_auto_increment: false
-          foreign_key_table: null
-          foreign_key_column: null
-    - collection: displayableFeeds
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 5
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: title
+      table: displayableFeeds
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: displayableFeeds
+    field: url
+    type: string
+    meta:
+      collection: displayableFeeds
+      conditions: null
+      display: null
+      display_options: null
       field: url
-      type: string
-      meta:
-          collection: displayableFeeds
-          conditions: null
-          display: null
-          display_options: null
-          field: url
-          group: null
-          hidden: false
-          interface: input
-          note: null
-          options: null
-          readonly: false
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 4
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: url
+      table: displayableFeeds
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: true
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: feeds
+    field: feedFields
+    type: alias
+    meta:
+      collection: feeds
+      conditions:
+        - name: not feed
+          rule:
+            _and:
+              - type:
+                  _neq: feed
+          readonly: true
+          hidden: true
           required: false
-          sort: null
-          special: null
-          translations: null
-          validation: null
-          validation_message: null
-          width: full
-      schema:
-          name: url
-          table: displayableFeeds
-          data_type: character varying
-          default_value: null
-          max_length: 255
-          numeric_precision: null
-          numeric_scale: null
-          is_nullable: true
-          is_unique: true
-          is_primary_key: false
-          is_generated: false
-          generation_expression: null
-          has_auto_increment: false
-          foreign_key_table: null
-          foreign_key_column: null
-    - collection: feed
+          options: {}
+      display: null
+      display_options: null
+      field: feedFields
+      group: null
+      hidden: false
+      interface: group-raw
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 4
+      special:
+        - alias
+        - group
+        - no-data
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: feeds
+    field: feedUrl
+    type: string
+    meta:
+      collection: feeds
+      conditions: []
+      display: null
+      display_options: null
+      field: feedUrl
+      group: feedFields
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: feedUrl
+      table: feeds
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: feeds
+    field: filter
+    type: integer
+    meta:
+      collection: feeds
+      conditions: null
+      display: null
+      display_options: null
       field: filter
-      type: integer
-      meta:
-          collection: feed
-          conditions:
-              - name: not filter
-                rule:
-                    _and:
-                        - type:
-                              _neq: filter
-                readonly: true
-                hidden: true
-                required: false
-                options:
-                    enableCreate: true
-                    enableSelect: true
-          display: null
-          display_options: null
-          field: filter
-          group: null
-          hidden: false
-          interface: select-dropdown-m2o
-          note: null
-          options:
-              template: "{{name}}"
-          readonly: false
-          required: false
-          sort: null
-          special:
-              - m2o
-          translations: null
-          validation: null
-          validation_message: null
-          width: full
-      schema:
-          name: filter
-          table: feed
-          data_type: integer
-          default_value: null
-          max_length: null
-          numeric_precision: 32
-          numeric_scale: 0
-          is_nullable: true
-          is_unique: false
-          is_primary_key: false
-          is_generated: false
-          generation_expression: null
-          has_auto_increment: false
-          foreign_key_table: filter
-          foreign_key_column: id
-    - collection: feed
+      group: filterFields
+      hidden: false
+      interface: select-dropdown-m2o
+      note: null
+      options:
+        template: '{{name}}'
+      readonly: false
+      required: false
+      sort: 2
+      special:
+        - m2o
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: filter
+      table: feeds
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: filters
+      foreign_key_column: id
+  - collection: feeds
+    field: filterChild
+    type: integer
+    meta:
+      collection: feeds
+      conditions: []
+      display: null
+      display_options: null
       field: filterChild
-      type: integer
-      meta:
-          collection: feed
-          conditions:
-              - name: not filter
-                rule:
-                    _and:
-                        - type:
-                              _neq: filter
-                readonly: true
-                hidden: true
-                required: false
-                options:
-                    enableCreate: true
-                    enableSelect: true
-          display: null
-          display_options: null
-          field: filterChild
-          group: null
-          hidden: false
-          interface: select-dropdown-m2o
-          note: null
-          options:
-              template: "[{{type}}]\_{{name}}"
-          readonly: false
+      group: filterFields
+      hidden: false
+      interface: select-dropdown-m2o
+      note: null
+      options:
+        template: "[{{type}}]\_{{name}}"
+      readonly: false
+      required: false
+      sort: 1
+      special:
+        - m2o
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: filterChild
+      table: feeds
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: feeds
+      foreign_key_column: id
+  - collection: feeds
+    field: filterFields
+    type: alias
+    meta:
+      collection: feeds
+      conditions:
+        - name: not filter
+          rule:
+            _and:
+              - type:
+                  _neq: filter
+          readonly: true
+          hidden: true
           required: false
-          sort: 6
-          special:
-              - m2o
-          translations: null
-          validation: null
-          validation_message: null
-          width: full
-      schema:
-          name: filterChild
-          table: feed
-          data_type: integer
-          default_value: null
-          max_length: null
-          numeric_precision: 32
-          numeric_scale: 0
-          is_nullable: true
-          is_unique: false
-          is_primary_key: false
-          is_generated: false
-          generation_expression: null
-          has_auto_increment: false
-          foreign_key_table: feed
-          foreign_key_column: id
-    - collection: feed
+          options: {}
+      display: null
+      display_options: null
+      field: filterFields
+      group: null
+      hidden: false
+      interface: group-raw
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 6
+      special:
+        - alias
+        - group
+        - no-data
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: feeds
+    field: groupChildren
+    type: alias
+    meta:
+      collection: feeds
+      conditions: []
+      display: null
+      display_options: null
       field: groupChildren
-      type: alias
-      meta:
-          collection: feed
-          conditions:
-              - name: not group
-                rule:
-                    _and:
-                        - type:
-                              _neq: group
-                readonly: true
-                hidden: true
-                required: false
-                options:
-                    layout: list
-                    enableCreate: true
-                    enableSelect: true
-                    limit: 15
-                    junctionFieldLocation: bottom
-                    allowDuplicates: false
-                    enableSearchFilter: false
-                    enableLink: false
-          display: null
-          display_options: null
-          field: groupChildren
-          group: null
-          hidden: false
-          interface: list-m2m
-          note: null
-          options:
-              template: "[{{related_feed_id.type}}]\_{{related_feed_id.name}}"
-          readonly: false
-          required: false
-          sort: 5
-          special:
-              - m2m
-          translations: null
-          validation: null
-          validation_message: null
-          width: full
-    - collection: feed
-      field: id
-      type: integer
-      meta:
-          collection: feed
-          conditions: null
-          display: null
-          display_options: null
-          field: id
-          group: null
-          hidden: true
-          interface: input
-          note: null
-          options: null
+      group: groupFields
+      hidden: false
+      interface: list-m2m
+      note: null
+      options:
+        template: "[{{related_feeds_id.type}}]\_{{related_feeds_id.name}}"
+      readonly: false
+      required: false
+      sort: 1
+      special:
+        - m2m
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: feeds
+    field: groupFields
+    type: alias
+    meta:
+      collection: feeds
+      conditions:
+        - name: not group
+          rule:
+            _and:
+              - type:
+                  _neq: group
           readonly: true
-          required: false
-          sort: 1
-          special: null
-          translations: null
-          validation: null
-          validation_message: null
-          width: full
-      schema:
-          name: id
-          table: feed
-          data_type: integer
-          default_value: nextval('feed_id_seq'::regclass)
-          max_length: null
-          numeric_precision: 32
-          numeric_scale: 0
-          is_nullable: false
-          is_unique: true
-          is_primary_key: true
-          is_generated: false
-          generation_expression: null
-          has_auto_increment: true
-          foreign_key_table: null
-          foreign_key_column: null
-    - collection: feed
-      field: name
-      type: string
-      meta:
-          collection: feed
-          conditions: null
-          display: null
-          display_options: null
-          field: name
-          group: null
-          hidden: false
-          interface: input
-          note: Ne sera pas affiché
-          options:
-              placeholder: null
-          readonly: false
-          required: false
-          sort: 2
-          special: null
-          translations: null
-          validation: null
-          validation_message: null
-          width: full
-      schema:
-          name: name
-          table: feed
-          data_type: character varying
-          default_value: null
-          max_length: 255
-          numeric_precision: null
-          numeric_scale: null
-          is_nullable: true
-          is_unique: false
-          is_primary_key: false
-          is_generated: false
-          generation_expression: null
-          has_auto_increment: false
-          foreign_key_table: null
-          foreign_key_column: null
-    - collection: feed
-      field: sourceUrl
-      type: string
-      meta:
-          collection: feed
-          conditions:
-              - name: not feed
-                rule:
-                    _and:
-                        - type:
-                              _neq: feed
-                readonly: true
-                hidden: true
-                required: false
-                options:
-                    font: sans-serif
-                    trim: false
-                    masked: false
-                    clear: false
-                    slug: false
-          display: null
-          display_options: null
-          field: sourceUrl
-          group: null
-          hidden: false
-          interface: input
-          note: null
-          options: null
-          readonly: false
-          required: false
-          sort: 4
-          special: null
-          translations: null
-          validation: null
-          validation_message: null
-          width: full
-      schema:
-          name: sourceUrl
-          table: feed
-          data_type: character varying
-          default_value: null
-          max_length: 255
-          numeric_precision: null
-          numeric_scale: null
-          is_nullable: true
-          is_unique: false
-          is_primary_key: false
-          is_generated: false
-          generation_expression: null
-          has_auto_increment: false
-          foreign_key_table: null
-          foreign_key_column: null
-    - collection: feed
-      field: type
-      type: string
-      meta:
-          collection: feed
-          conditions: null
-          display: null
-          display_options: null
-          field: type
-          group: null
-          hidden: false
-          interface: select-dropdown
-          note: null
-          options:
-              choices:
-                  - text: Flux
-                    value: feed
-                  - text: Groupe
-                    value: group
-                  - text: Filtre
-                    value: filter
-          readonly: false
-          required: true
-          sort: 3
-          special: null
-          translations: null
-          validation: null
-          validation_message: null
-          width: full
-      schema:
-          name: type
-          table: feed
-          data_type: character varying
-          default_value: null
-          max_length: 255
-          numeric_precision: null
-          numeric_scale: null
-          is_nullable: true
-          is_unique: false
-          is_primary_key: false
-          is_generated: false
-          generation_expression: null
-          has_auto_increment: false
-          foreign_key_table: null
-          foreign_key_column: null
-    - collection: feed_feed
-      field: feed_id
-      type: integer
-      meta:
-          collection: feed_feed
-          conditions: null
-          display: null
-          display_options: null
-          field: feed_id
-          group: null
           hidden: true
-          interface: null
-          note: null
-          options: null
-          readonly: false
           required: false
-          sort: null
-          special: null
-          translations: null
-          validation: null
-          validation_message: null
-          width: full
-      schema:
-          name: feed_id
-          table: feed_feed
-          data_type: integer
-          default_value: null
-          max_length: null
-          numeric_precision: 32
-          numeric_scale: 0
-          is_nullable: true
-          is_unique: false
-          is_primary_key: false
-          is_generated: false
-          generation_expression: null
-          has_auto_increment: false
-          foreign_key_table: feed
-          foreign_key_column: id
-    - collection: feed_feed
+          options:
+            start: open
+      display: null
+      display_options: null
+      field: groupFields
+      group: null
+      hidden: false
+      interface: group-raw
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 5
+      special:
+        - alias
+        - group
+        - no-data
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: feeds
+    field: id
+    type: integer
+    meta:
+      collection: feeds
+      conditions: null
+      display: null
+      display_options: null
       field: id
-      type: integer
-      meta:
-          collection: feed_feed
-          conditions: null
-          display: null
-          display_options: null
-          field: id
-          group: null
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: feeds
+      data_type: integer
+      default_value: nextval('feeds_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: feeds
+    field: name
+    type: string
+    meta:
+      collection: feeds
+      conditions: null
+      display: null
+      display_options: null
+      field: name
+      group: null
+      hidden: false
+      interface: input
+      note: Ne sera pas affiché
+      options: null
+      readonly: false
+      required: false
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: name
+      table: feeds
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: feeds
+    field: type
+    type: string
+    meta:
+      collection: feeds
+      conditions: null
+      display: null
+      display_options: null
+      field: type
+      group: null
+      hidden: false
+      interface: select-dropdown
+      note: null
+      options:
+        choices:
+          - text: Flux
+            value: feed
+          - text: Groupe
+            value: group
+          - text: Filtre
+            value: filter
+      readonly: false
+      required: true
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: type
+      table: feeds
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: feeds_feeds
+    field: feeds_id
+    type: integer
+    meta:
+      collection: feeds_feeds
+      conditions: null
+      display: null
+      display_options: null
+      field: feeds_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: feeds_id
+      table: feeds_feeds
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: feeds
+      foreign_key_column: id
+  - collection: feeds_feeds
+    field: id
+    type: integer
+    meta:
+      collection: feeds_feeds
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: feeds_feeds
+      data_type: integer
+      default_value: nextval('feeds_feeds_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: feeds_feeds
+    field: related_feeds_id
+    type: integer
+    meta:
+      collection: feeds_feeds
+      conditions: null
+      display: null
+      display_options: null
+      field: related_feeds_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: related_feeds_id
+      table: feeds_feeds
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: feeds
+      foreign_key_column: id
+  - collection: filters
+    field: behaviour
+    type: string
+    meta:
+      collection: filters
+      conditions:
+        - name: not contains
+          rule:
+            _and:
+              - type:
+                  _neq: contains
+          readonly: true
           hidden: true
-          interface: null
-          note: null
-          options: null
-          readonly: false
           required: false
-          sort: null
-          special: null
-          translations: null
-          validation: null
-          validation_message: null
-          width: full
-      schema:
-          name: id
-          table: feed_feed
-          data_type: integer
-          default_value: nextval('feed_feed_id_seq'::regclass)
-          max_length: null
-          numeric_precision: 32
-          numeric_scale: 0
-          is_nullable: false
-          is_unique: true
-          is_primary_key: true
-          is_generated: false
-          generation_expression: null
-          has_auto_increment: true
-          foreign_key_table: null
-          foreign_key_column: null
-    - collection: feed_feed
-      field: related_feed_id
-      type: integer
-      meta:
-          collection: feed_feed
-          conditions: null
-          display: null
-          display_options: null
-          field: related_feed_id
-          group: null
-          hidden: true
-          interface: null
-          note: null
-          options: null
-          readonly: false
-          required: false
-          sort: null
-          special: null
-          translations: null
-          validation: null
-          validation_message: null
-          width: full
-      schema:
-          name: related_feed_id
-          table: feed_feed
-          data_type: integer
-          default_value: null
-          max_length: null
-          numeric_precision: 32
-          numeric_scale: 0
-          is_nullable: true
-          is_unique: false
-          is_primary_key: false
-          is_generated: false
-          generation_expression: null
-          has_auto_increment: false
-          foreign_key_table: feed
-          foreign_key_column: id
-    - collection: filter
+          options:
+            allowOther: false
+            allowNone: false
+      display: null
+      display_options: null
       field: behaviour
-      type: string
-      meta:
-          collection: filter
-          conditions:
-              - name: type contains
-                rule:
-                    _and:
-                        - type:
-                              _eq: contains
-                readonly: false
-                hidden: false
-                required: true
-                options:
-                    allowOther: false
-                    allowNone: false
-                    choices:
-                        - text: Un ou plus
-                          value: oneOrMore
-                        - text: Tous
-                          value: all
-              - name: others
-                rule:
-                    _and:
-                        - type:
-                              _neq: contains
-                readonly: true
-                hidden: true
-                required: false
-                options:
-                    allowOther: false
-                    allowNone: false
-          display: null
-          display_options: null
-          field: behaviour
-          group: null
-          hidden: false
-          interface: select-dropdown
-          note: null
-          options: null
-          readonly: false
-          required: false
-          sort: 8
-          special: null
-          translations: null
-          validation: null
-          validation_message: null
-          width: full
-      schema:
-          name: behaviour
-          table: filter
-          data_type: character varying
-          default_value: null
-          max_length: 255
-          numeric_precision: null
-          numeric_scale: null
-          is_nullable: true
-          is_unique: false
-          is_primary_key: false
-          is_generated: false
-          generation_expression: null
-          has_auto_increment: false
-          foreign_key_table: null
-          foreign_key_column: null
-    - collection: filter
+      group: null
+      hidden: false
+      interface: select-dropdown
+      note: null
+      options:
+        choices:
+          - text: Un ou plus
+            value: oneOrMore
+          - text: Tous
+            value: all
+      readonly: false
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: behaviour
+      table: filters
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: filters
+    field: caseSensitive
+    type: boolean
+    meta:
+      collection: filters
+      conditions: null
+      display: null
+      display_options: null
       field: caseSensitive
-      type: boolean
-      meta:
-          collection: filter
-          conditions: null
-          display: null
-          display_options: null
-          field: caseSensitive
-          group: null
-          hidden: false
-          interface: boolean
-          note: null
-          options: null
-          readonly: false
-          required: false
-          sort: 6
-          special:
-              - cast-boolean
-          translations: null
-          validation: null
-          validation_message: null
-          width: full
-      schema:
-          name: caseSensitive
-          table: filter
-          data_type: boolean
-          default_value: false
-          max_length: null
-          numeric_precision: null
-          numeric_scale: null
-          is_nullable: true
-          is_unique: false
-          is_primary_key: false
-          is_generated: false
-          generation_expression: null
-          has_auto_increment: false
-          foreign_key_table: null
-          foreign_key_column: null
-    - collection: filter
+      group: null
+      hidden: false
+      interface: boolean
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: null
+      special:
+        - cast-boolean
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: caseSensitive
+      table: filters
+      data_type: boolean
+      default_value: false
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: false
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: filters
+    field: field
+    type: string
+    meta:
+      collection: filters
+      conditions: null
+      display: null
+      display_options: null
       field: field
-      type: string
-      meta:
-          collection: filter
-          conditions: null
-          display: null
-          display_options: null
-          field: field
-          group: null
-          hidden: false
-          interface: select-dropdown
-          note: null
-          options:
-              choices:
-                  - text: content
-                    value: content
-                  - text: link
-                    value: link
-                  - text: title
-                    value: title
-          readonly: false
-          required: true
-          sort: 4
-          special: null
-          translations: null
-          validation: null
-          validation_message: null
-          width: full
-      schema:
-          name: field
-          table: filter
-          data_type: character varying
-          default_value: null
-          max_length: 255
-          numeric_precision: null
-          numeric_scale: null
-          is_nullable: true
-          is_unique: false
-          is_primary_key: false
-          is_generated: false
-          generation_expression: null
-          has_auto_increment: false
-          foreign_key_table: null
-          foreign_key_column: null
-    - collection: filter
+      group: null
+      hidden: false
+      interface: select-dropdown
+      note: null
+      options:
+        choices:
+          - text: content
+            value: content
+          - text: link
+            value: link
+          - text: title
+            value: title
+          - text: author
+            value: author
+      readonly: false
+      required: true
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: field
+      table: filters
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: filters
+    field: id
+    type: integer
+    meta:
+      collection: filters
+      conditions: null
+      display: null
+      display_options: null
       field: id
-      type: integer
-      meta:
-          collection: filter
-          conditions: null
-          display: null
-          display_options: null
-          field: id
-          group: null
-          hidden: true
-          interface: input
-          note: null
-          options: null
-          readonly: true
-          required: false
-          sort: 1
-          special: null
-          translations: null
-          validation: null
-          validation_message: null
-          width: full
-      schema:
-          name: id
-          table: filter
-          data_type: integer
-          default_value: nextval('filter_id_seq'::regclass)
-          max_length: null
-          numeric_precision: 32
-          numeric_scale: 0
-          is_nullable: false
-          is_unique: true
-          is_primary_key: true
-          is_generated: false
-          generation_expression: null
-          has_auto_increment: true
-          foreign_key_table: null
-          foreign_key_column: null
-    - collection: filter
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: filters
+      data_type: integer
+      default_value: nextval('filters_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: filters
+    field: keep
+    type: boolean
+    meta:
+      collection: filters
+      conditions: null
+      display: null
+      display_options: null
       field: keep
-      type: boolean
-      meta:
-          collection: filter
-          conditions: null
-          display: null
-          display_options: null
-          field: keep
-          group: null
-          hidden: false
-          interface: boolean
-          note: null
-          options: null
-          readonly: false
-          required: true
-          sort: 9
-          special:
-              - cast-boolean
-          translations: null
-          validation: null
-          validation_message: null
-          width: full
-      schema:
-          name: keep
-          table: filter
-          data_type: boolean
-          default_value: true
-          max_length: null
-          numeric_precision: null
-          numeric_scale: null
-          is_nullable: true
-          is_unique: false
-          is_primary_key: false
-          is_generated: false
-          generation_expression: null
-          has_auto_increment: false
-          foreign_key_table: null
-          foreign_key_column: null
-    - collection: filter
+      group: null
+      hidden: false
+      interface: boolean
+      note: Garder si correspondance
+      options: null
+      readonly: false
+      required: true
+      sort: null
+      special:
+        - cast-boolean
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: keep
+      table: filters
+      data_type: boolean
+      default_value: true
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: filters
+    field: name
+    type: string
+    meta:
+      collection: filters
+      conditions: null
+      display: null
+      display_options: null
       field: name
-      type: string
-      meta:
-          collection: filter
-          conditions: null
-          display: null
-          display_options: null
-          field: name
-          group: null
-          hidden: false
-          interface: input
-          note: Ne sera pas affiché
-          options: null
-          readonly: false
-          required: false
-          sort: 2
-          special: null
-          translations: null
-          validation: null
-          validation_message: null
-          width: full
-      schema:
-          name: name
-          table: filter
-          data_type: character varying
-          default_value: null
-          max_length: 255
-          numeric_precision: null
-          numeric_scale: null
-          is_nullable: true
-          is_unique: false
-          is_primary_key: false
-          is_generated: false
-          generation_expression: null
-          has_auto_increment: false
-          foreign_key_table: null
-          foreign_key_column: null
-    - collection: filter
+      group: null
+      hidden: false
+      interface: input
+      note: Ne sera pas affiché
+      options: null
+      readonly: false
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: name
+      table: filters
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: filters
+    field: type
+    type: string
+    meta:
+      collection: filters
+      conditions: null
+      display: null
+      display_options: null
       field: type
-      type: string
-      meta:
-          collection: filter
-          conditions: null
-          display: null
-          display_options: null
-          field: type
-          group: null
-          hidden: false
-          interface: select-dropdown
-          note: null
-          options:
-              choices:
-                  - text: contains
-                    value: contains
-                  - text: exact
-                    value: exact
-                  - text: regex
-                    value: regex
-          readonly: false
-          required: true
-          sort: 3
-          special: null
-          translations: null
-          validation: null
-          validation_message: null
-          width: full
-      schema:
-          name: type
-          table: filter
-          data_type: character varying
-          default_value: null
-          max_length: 255
-          numeric_precision: null
-          numeric_scale: null
-          is_nullable: false
-          is_unique: false
-          is_primary_key: false
-          is_generated: false
-          generation_expression: null
-          has_auto_increment: false
-          foreign_key_table: null
-          foreign_key_column: null
-    - collection: filter
+      group: null
+      hidden: false
+      interface: select-dropdown
+      note: null
+      options:
+        choices:
+          - text: contains
+            value: contains
+          - text: exact
+            value: exact
+          - text: regex
+            value: regex
+      readonly: false
+      required: true
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: type
+      table: filters
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: filters
+    field: values
+    type: json
+    meta:
+      collection: filters
+      conditions: null
+      display: null
+      display_options: null
       field: values
-      type: json
-      meta:
-          collection: filter
-          conditions: null
-          display: null
-          display_options: null
-          field: values
-          group: null
-          hidden: false
-          interface: tags
-          note: null
-          options: null
-          readonly: false
-          required: false
-          sort: 5
-          special:
-              - cast-json
-          translations: null
-          validation: null
-          validation_message: null
-          width: full
-      schema:
-          name: values
-          table: filter
-          data_type: json
-          default_value: null
-          max_length: null
-          numeric_precision: null
-          numeric_scale: null
-          is_nullable: true
-          is_unique: false
-          is_primary_key: false
-          is_generated: false
-          generation_expression: null
-          has_auto_increment: false
-          foreign_key_table: null
-          foreign_key_column: null
+      group: null
+      hidden: false
+      interface: tags
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: null
+      special:
+        - cast-json
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: values
+      table: filters
+      data_type: json
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
 relations:
-    - collection: displayableFeeds
-      field: feed
-      related_collection: feed
-      meta:
-          junction_field: null
-          many_collection: displayableFeeds
-          many_field: feed
-          one_allowed_collections: null
-          one_collection: feed
-          one_collection_field: null
-          one_deselect_action: nullify
-          one_field: null
-          sort_field: null
-      schema:
-          table: displayableFeeds
-          column: feed
-          foreign_key_table: feed
-          foreign_key_column: id
-          constraint_name: displayablefeeds_feed_foreign
-          on_update: NO ACTION
-          on_delete: SET NULL
-    - collection: feed
-      field: filter
-      related_collection: filter
-      meta:
-          junction_field: null
-          many_collection: feed
-          many_field: filter
-          one_allowed_collections: null
-          one_collection: filter
-          one_collection_field: null
-          one_deselect_action: nullify
-          one_field: null
-          sort_field: null
-      schema:
-          table: feed
-          column: filter
-          foreign_key_table: filter
-          foreign_key_column: id
-          constraint_name: feed_filter_foreign
-          on_update: NO ACTION
-          on_delete: SET NULL
-    - collection: feed
-      field: filterChild
-      related_collection: feed
-      meta:
-          junction_field: null
-          many_collection: feed
-          many_field: filterChild
-          one_allowed_collections: null
-          one_collection: feed
-          one_collection_field: null
-          one_deselect_action: nullify
-          one_field: null
-          sort_field: null
-      schema:
-          table: feed
-          column: filterChild
-          foreign_key_table: feed
-          foreign_key_column: id
-          constraint_name: feed_filterchild_foreign
-          on_update: NO ACTION
-          on_delete: NO ACTION
-    - collection: feed_feed
-      field: feed_id
-      related_collection: feed
-      meta:
-          junction_field: related_feed_id
-          many_collection: feed_feed
-          many_field: feed_id
-          one_allowed_collections: null
-          one_collection: feed
-          one_collection_field: null
-          one_deselect_action: nullify
-          one_field: groupChildren
-          sort_field: null
-      schema:
-          table: feed_feed
-          column: feed_id
-          foreign_key_table: feed
-          foreign_key_column: id
-          constraint_name: feed_feed_feed_id_foreign
-          on_update: NO ACTION
-          on_delete: SET NULL
-    - collection: feed_feed
-      field: related_feed_id
-      related_collection: feed
-      meta:
-          junction_field: feed_id
-          many_collection: feed_feed
-          many_field: related_feed_id
-          one_allowed_collections: null
-          one_collection: feed
-          one_collection_field: null
-          one_deselect_action: nullify
-          one_field: null
-          sort_field: null
-      schema:
-          table: feed_feed
-          column: related_feed_id
-          foreign_key_table: feed
-          foreign_key_column: id
-          constraint_name: feed_feed_related_feed_id_foreign
-          on_update: NO ACTION
-          on_delete: SET NULL
+  - collection: displayableFeeds
+    field: feed
+    related_collection: feeds
+    meta:
+      junction_field: null
+      many_collection: displayableFeeds
+      many_field: feed
+      one_allowed_collections: null
+      one_collection: feeds
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: displayableFeeds
+      column: feed
+      foreign_key_table: feeds
+      foreign_key_column: id
+      constraint_name: displayablefeeds_feed_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: feeds
+    field: filter
+    related_collection: filters
+    meta:
+      junction_field: null
+      many_collection: feeds
+      many_field: filter
+      one_allowed_collections: null
+      one_collection: filters
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: feeds
+      column: filter
+      foreign_key_table: filters
+      foreign_key_column: id
+      constraint_name: feeds_filter_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: feeds
+    field: filterChild
+    related_collection: feeds
+    meta:
+      junction_field: null
+      many_collection: feeds
+      many_field: filterChild
+      one_allowed_collections: null
+      one_collection: feeds
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: feeds
+      column: filterChild
+      foreign_key_table: feeds
+      foreign_key_column: id
+      constraint_name: feeds_filterchild_foreign
+      on_update: NO ACTION
+      on_delete: NO ACTION
+  - collection: feeds_feeds
+    field: feeds_id
+    related_collection: feeds
+    meta:
+      junction_field: related_feeds_id
+      many_collection: feeds_feeds
+      many_field: feeds_id
+      one_allowed_collections: null
+      one_collection: feeds
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: groupChildren
+      sort_field: null
+    schema:
+      table: feeds_feeds
+      column: feeds_id
+      foreign_key_table: feeds
+      foreign_key_column: id
+      constraint_name: feeds_feeds_feeds_id_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: feeds_feeds
+    field: related_feeds_id
+    related_collection: feeds
+    meta:
+      junction_field: feeds_id
+      many_collection: feeds_feeds
+      many_field: related_feeds_id
+      one_allowed_collections: null
+      one_collection: feeds
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: feeds_feeds
+      column: related_feeds_id
+      foreign_key_table: feeds
+      foreign_key_column: id
+      constraint_name: feeds_feeds_related_feeds_id_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
