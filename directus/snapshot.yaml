@@ -940,8 +940,6 @@ fields:
             value: link
           - text: title
             value: title
-          - text: author
-            value: author
       readonly: false
       required: true
       sort: null
@@ -1096,10 +1094,10 @@ fields:
       note: null
       options:
         choices:
+          - text: equals
+            value: equals
           - text: contains
             value: contains
-          - text: exact
-            value: exact
           - text: regex
             value: regex
       readonly: false

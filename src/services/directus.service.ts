@@ -8,16 +8,14 @@ import {
     type IDirectusFeedFeed,
     type IDirectusFeedFilter,
     type IDirectusFeedGroup,
-    type IDirectusFilter
+    type IDirectusRelationGroupFeed
 } from '@/interfaces/directus.interface';
 
 class DirectusService {
     private feeds: IDirectusFeed[] = [];
-    private filters: IDirectusFilter[] = [];
 
     public async getFeed (url: string): Promise<IDirectusDisplayableFeed> {
         this.feeds = [];
-        this.filters = [];
 
         const displayableFeeds = await this.getDirectusItems<IDirectusDisplayableFeed>('displayableFeeds', {
             'filter[status][_eq]': 'published',
@@ -26,8 +24,9 @@ class DirectusService {
         if (displayableFeeds.length === 0) throw new HttpException(404, 'Feed not found');
         const displayableFeed = displayableFeeds[0];
 
-        this.feeds = await this.getDirectusItems<IDirectusFeed>('feeds');
-        this.filters = await this.getDirectusItems<IDirectusFilter>('filters');
+        this.feeds = await this.getDirectusItems<IDirectusFeed>('feeds', {
+            fields: '*.*'
+        });
 
         const feed = this.buildFeedTree(displayableFeed.feed);
         return {
@@ -64,7 +63,8 @@ class DirectusService {
             }
             case 'group': {
                 const feedGroup = (feed as IDirectusFeedGroup);
-                const groupChildren = (feedGroup.groupChildren as number[]).map(this.buildFeedTree.bind(this));
+                const groupChildren = (feedGroup.groupChildren as IDirectusRelationGroupFeed[])
+                    .map(relation => this.buildFeedTree(relation.related_feeds_id));
                 return {
                     ...feedGroup,
                     groupChildren
@@ -73,12 +73,9 @@ class DirectusService {
             case 'filter': {
                 const feedFilter = (feed as IDirectusFeedFilter);
                 const filterChild = this.buildFeedTree(feedFilter.filterChild);
-                const filter = this.filters.find(filter => filter.id === feedFilter.filter);
-                if (filter === undefined) throw new HttpException(500, 'Filter not found');
                 return {
                     ...feedFilter,
-                    filterChild,
-                    filter
+                    filterChild
                 };
             }
         }

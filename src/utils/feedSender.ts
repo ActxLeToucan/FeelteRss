@@ -37,6 +37,19 @@ class FeedSender {
                 this.res.status(200).send(feed.atom1());
         }
     }
+
+    public getFormat (): FeedFormat {
+        switch (this.req.query.format) {
+            case 'json':
+            case 'rss':
+            case 'atom':
+                return this.req.query.format;
+            default:
+                return 'atom';
+        }
+    }
 }
+
+export type FeedFormat = 'json' | 'atom' | 'rss';
 
 export default FeedSender;
