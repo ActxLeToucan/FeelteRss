@@ -1,3 +1,19 @@
+/**
+ * @openapi
+ * components:
+ *   schemas:
+ *     Error:
+ *       type: object
+ *       properties:
+ *         error:
+ *           type: object
+ *           properties:
+ *             code:
+ *               type: integer
+ *             message:
+ *               type: string
+ */
+
 import { type NextFunction, type Request, type Response } from 'express';
 
 import { NODE_ENV } from '@/config';

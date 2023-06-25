@@ -7,16 +7,7 @@
  *       content:
  *         application/json:
  *           schema:
- *             type: object
- *             properties:
- *               error:
- *                 type: object
- *                 properties:
- *                   code:
- *                     type: integer
- *                     example: 422
- *                   message:
- *                     type: string
+ *             $ref: '#/components/schemas/Error'
  */
 
 import { type ObjectSchema, ValidationError } from 'joi';

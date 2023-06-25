@@ -3,6 +3,7 @@ import { Router } from 'express';
 import { type Routes } from '@/interfaces/routes.interface';
 import DocsRoutes from '@/routes/docs.routes';
 import { type Tag } from 'swagger-jsdoc';
+import FeedRoutes from '@/routes/v1/feed.routes';
 
 class RouterV1 implements Routes {
     public path = '/v1';
@@ -14,7 +15,12 @@ class RouterV1 implements Routes {
     }
 
     private initializeRoutes () {
-        const tags: Tag[] = [];
+        const feedRoutes = new FeedRoutes();
+        this.router.use(`${this.path}`, feedRoutes.router);
+
+        const tags: Tag[] = [
+            feedRoutes.tag
+        ];
 
         this.router.use(`${this.path}`, new DocsRoutes(this.version, 'v1', tags).router);
     }
