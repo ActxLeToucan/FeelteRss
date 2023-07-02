@@ -4,7 +4,6 @@ import { type Routes } from '@/interfaces/routes.interface';
 import validate from '@/middlewares/validator.middleware';
 import { feedFormatSchema, feedIdSchema } from '@/validators/feed.validator';
 import FeedController from '@/controllers/feed.controller';
-import { valid } from 'joi';
 
 class FeedRoutes implements Routes {
     public path = '/feed';
@@ -39,12 +38,19 @@ class FeedRoutes implements Routes {
          *       200:
          *         description: The feed
          *       404:
+         *         description: Feed not found
          *         content:
          *           application/json:
          *             schema:
-         *               $ref: '#/components/schemas/error'
+         *               $ref: '#/components/schemas/Error'
          *       422:
          *         $ref: '#/components/responses/errorValidate'
+         *       500:
+         *         description: Invalid feed
+         *         content:
+         *           application/json:
+         *             schema:
+         *               $ref: '#/components/schemas/Error'
          */
         this.router.get(
             `${this.path}/:feed`,

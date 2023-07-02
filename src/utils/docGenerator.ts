@@ -5,7 +5,7 @@ function generateDoc (version: string, folder: string, tags: Tag[]) {
         definition: {
             openapi: '3.0.0',
             info: {
-                title: '2Feed',
+                title: 'FeelteRss',
                 version
             },
             tags: [

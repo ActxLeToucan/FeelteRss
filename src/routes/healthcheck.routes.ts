@@ -1,4 +1,5 @@
 import { type Request, type Response, Router } from 'express';
+
 import { type Routes } from '@/interfaces/routes.interface';
 
 class HealthcheckRoutes implements Routes {

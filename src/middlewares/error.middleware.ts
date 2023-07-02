@@ -15,11 +15,11 @@
  */
 
 import { type NextFunction, type Request, type Response } from 'express';
+import { isAxiosError } from 'axios';
 
 import { NODE_ENV } from '@/config';
 import { type HttpException } from '@/exceptions/HttpException';
 import { logger } from '@/utils/logger';
-import { isAxiosError } from 'axios';
 
 const GENERIC_ERROR_MESSAGE = 'Something went wrong';
 

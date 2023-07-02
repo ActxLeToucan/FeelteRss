@@ -12,6 +12,7 @@
 
 import { type ObjectSchema, ValidationError } from 'joi';
 import { type NextFunction, type Request, type Response } from 'express';
+
 import { HttpException } from '@/exceptions/HttpException';
 
 const validate = (validator: ObjectSchema, property: 'body' | 'params' | 'query') => {

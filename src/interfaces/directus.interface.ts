@@ -44,7 +44,7 @@ export interface IDirectusFilter {
     name: string
     type: 'contains' | 'equals' | 'regex'
     field: 'content' | 'link' | 'title'
-    values?: string[]
+    values: string[] | null
     caseSensitive: boolean
     behaviour: 'oneOrMore' | 'all' | null
     keep: boolean

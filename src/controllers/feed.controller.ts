@@ -195,7 +195,7 @@ class FeedController {
                 }
             }
             case 'regex': {
-                if (filter.values === undefined || filter.values.length === 0) throw new HttpException(400, 'Regex filter must have at least one value');
+                if (filter.values == null || filter.values.length === 0) throw new HttpException(400, 'Regex filter must have at least one value');
                 const regex = new RegExp(filter.values[0]);
                 return regex.test(itemValue) === filter.keep;
             }

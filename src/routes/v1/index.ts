@@ -1,8 +1,8 @@
 import { Router } from 'express';
+import { type Tag } from 'swagger-jsdoc';
 
 import { type Routes } from '@/interfaces/routes.interface';
 import DocsRoutes from '@/routes/docs.routes';
-import { type Tag } from 'swagger-jsdoc';
 import FeedRoutes from '@/routes/v1/feed.routes';
 
 class RouterV1 implements Routes {
