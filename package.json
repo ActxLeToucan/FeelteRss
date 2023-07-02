@@ -12,7 +12,7 @@
     "directus:stop": "docker compose -f ./directus/docker-compose.yml down",
     "directus:restart": "docker compose -f ./directus/docker-compose.yml restart",
     "directus:snapshot": "docker compose -f ./directus/docker-compose.yml exec directus npx directus schema apply --yes ./snapshot.yaml",
-    "prod": "npm ci ; npm run build ; npm ci --omit=dev ; npm run directus ; docker compose up --build -d"
+    "prod": "npm ci && npm run build && npm ci --omit=dev && docker compose up --build -d"
   },
   "keywords": [],
   "author": "",

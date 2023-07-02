@@ -36,8 +36,6 @@ Pour lancer le serveur, exécutez la commande ```npm run start```.
 Dupliquer le fichier [`docker-compose.yml.dist`](docker-compose.yml.dist), le renommer en `docker-compose.yml`.\
 Le modifier si besoin pour obtenir la configuration souhaitée.
 
-Même chose pour le fichier [`directus/docker-compose.yml.dist`](directus/docker-compose.yml.dist).
-
 Exécuter la commande ```npm run prod``` pour construire et lancer l'image docker de l'application.
 
 ## Documentation
