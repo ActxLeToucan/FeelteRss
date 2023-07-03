@@ -10,6 +10,7 @@ import {
     type IDirectusFeedGroup,
     type IDirectusRelationGroupFeed
 } from '@/interfaces/directus.interface';
+import { logger } from '@/utils/logger';
 
 class DirectusService {
     private feeds: IDirectusFeed[] = [];
@@ -17,6 +18,7 @@ class DirectusService {
     public async getFeed (url: string): Promise<IDirectusDisplayableFeed> {
         this.feeds = [];
 
+        logger.info(`Getting feed for ${url}`);
         const displayableFeeds = await this.getDirectusItems<IDirectusDisplayableFeed>('displayableFeeds', {
             'filter[status][_eq]': 'published',
             'filter[url][_eq]': url

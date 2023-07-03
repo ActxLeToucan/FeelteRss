@@ -13,6 +13,7 @@ import {
 } from '@/interfaces/directus.interface';
 import FeedSender, { type FeedFormat } from '@/utils/feedSender';
 import { HttpException } from '@/exceptions/HttpException';
+import { logger } from '@/utils/logger';
 
 class FeedController {
     private readonly service: DirectusService = new DirectusService();
@@ -25,7 +26,10 @@ class FeedController {
             this.directusFeedToFeed(displayableFeed, req, feedSender.getFormat())
                 .then(feed => { feedSender.send(feed); })
                 .catch(next);
-        }).catch(next);
+        }).catch(error => {
+            logger.error('Directus service error:', error);
+            next(error);
+        });
     };
 
     private async directusFeedToFeed (displayableFeed: IDirectusDisplayableFeed, req: Request, format: FeedFormat): Promise<Feed> {
