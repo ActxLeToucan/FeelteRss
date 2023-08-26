@@ -1,7 +1,7 @@
 version: '3'
+name: directus_feelterss
 services:
   database:
-    container_name: database
     image: postgis/postgis:13-master
     # Required when running on platform other than amd64, like Apple M1/M2:
     # platform: linux/amd64
@@ -15,13 +15,11 @@ services:
       POSTGRES_DB: 'directus'
 
   # cache:
-  #   container_name: cache
   #   image: redis:6
   #   networks:
   #     - directus
 
   directus:
-    container_name: directus
     image: directus/directus:latest
     ports:
       - 8055:8055

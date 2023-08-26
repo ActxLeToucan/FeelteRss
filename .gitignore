@@ -20,6 +20,5 @@ lerna-debug.log*
 
 # Directus
 directus/*
-!directus/.env
 !directus/snapshot.yaml
 !directus/docker-compose.yml.dist
