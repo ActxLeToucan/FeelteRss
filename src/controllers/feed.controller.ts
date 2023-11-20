@@ -1,8 +1,8 @@
 import { type NextFunction, type Request, type Response } from 'express';
-import { Feed, type Author, type Item } from 'feed';
+import { type Author, Feed, type Item } from 'feed';
 import Parser, { type Item as RssParserItem } from 'rss-parser';
 
-import DirectusService from '@/services/directus.service';
+import { HttpException } from '@/exceptions/HttpException';
 import {
     type IDirectusDisplayableFeed,
     type IDirectusFeed,
@@ -11,8 +11,8 @@ import {
     type IDirectusFeedGroup,
     type IDirectusFilter
 } from '@/interfaces/directus.interface';
+import DirectusService from '@/services/directus.service';
 import FeedSender, { type FeedFormat } from '@/utils/feedSender';
-import { HttpException } from '@/exceptions/HttpException';
 import { logger } from '@/utils/logger';
 
 class FeedController {
@@ -51,28 +51,28 @@ class FeedController {
 
     private async getFeedItems (directusFeed: IDirectusFeed, format: FeedFormat): Promise<Item[]> {
         switch (directusFeed.type) {
-            case 'feed': {
-                const feed = directusFeed as IDirectusFeedFeed;
-                return await this.loadItems(feed, format);
-            }
-            case 'group': {
-                const feedGroup = directusFeed as IDirectusFeedGroup;
-                const items = [];
-                for (const child of feedGroup.groupChildren) {
-                    const feed = child as IDirectusFeed;
+        case 'feed': {
+            const feed = directusFeed as IDirectusFeedFeed;
+            return await this.loadItems(feed, format);
+        }
+        case 'group': {
+            const feedGroup = directusFeed as IDirectusFeedGroup;
+            const items = [];
+            for (const child of feedGroup.groupChildren) {
+                const feed = child as IDirectusFeed;
 
-                    items.push(...(await this.getFeedItems(feed, format)));
-                }
-                return items;
+                items.push(...(await this.getFeedItems(feed, format)));
             }
-            case 'filter': {
-                const feedFilter = directusFeed as IDirectusFeedFilter;
-                const feed = feedFilter.filterChild as IDirectusFeedFeed;
-                const filter = feedFilter.filter;
-                const originalItems = await this.getFeedItems(feed, format);
+            return items;
+        }
+        case 'filter': {
+            const feedFilter = directusFeed as IDirectusFeedFilter;
+            const feed = feedFilter.filterChild as IDirectusFeedFeed;
+            const filter = feedFilter.filter;
+            const originalItems = await this.getFeedItems(feed, format);
 
-                return originalItems.filter(item => this.filterItem(item, filter));
-            }
+            return originalItems.filter(item => this.filterItem(item, filter));
+        }
         }
     }
 
@@ -176,36 +176,36 @@ class FeedController {
         }
 
         switch (filter.type) {
-            case 'equals': {
-                return values.includes(itemValue) === filter.keep;
-            }
-            case 'contains': {
-                switch (filter.behaviour) {
-                    case 'oneOrMore': {
-                        for (const value of values) {
-                            if (itemValue.includes(value)) return filter.keep;
-                        }
-                        return !filter.keep;
-                    }
-                    case 'all': {
-                        for (const value of values) {
-                            if (!itemValue.includes(value)) return !filter.keep;
-                        }
-                        return filter.keep;
-                    }
-                    default: {
-                        throw new HttpException(500, `Unknown filter behaviour ${String(filter.behaviour)}`);
-                    }
+        case 'equals': {
+            return values.includes(itemValue) === filter.keep;
+        }
+        case 'contains': {
+            switch (filter.behaviour) {
+            case 'oneOrMore': {
+                for (const value of values) {
+                    if (itemValue.includes(value)) return filter.keep;
                 }
+                return !filter.keep;
             }
-            case 'regex': {
-                if (filter.values == null || filter.values.length === 0) throw new HttpException(400, 'Regex filter must have at least one value');
-                const regex = new RegExp(filter.values[0]);
-                return regex.test(itemValue) === filter.keep;
+            case 'all': {
+                for (const value of values) {
+                    if (!itemValue.includes(value)) return !filter.keep;
+                }
+                return filter.keep;
             }
             default: {
-                throw new HttpException(500, `Unknown filter type ${String(filter.type)}`);
+                throw new HttpException(500, `Unknown filter behaviour ${String(filter.behaviour)}`);
             }
+            }
+        }
+        case 'regex': {
+            if (filter.values == null || filter.values.length === 0) throw new HttpException(400, 'Regex filter must have at least one value');
+            const regex = new RegExp(filter.values[0]);
+            return regex.test(itemValue) === filter.keep;
+        }
+        default: {
+            throw new HttpException(500, `Unknown filter type ${String(filter.type)}`);
+        }
         }
     }
 }

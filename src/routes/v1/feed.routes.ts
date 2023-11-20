@@ -1,9 +1,9 @@
 import { Router } from 'express';
 
+import FeedController from '@/controllers/feed.controller';
 import { type Routes } from '@/interfaces/routes.interface';
 import validate from '@/middlewares/validator.middleware';
 import { feedFormatSchema, feedIdSchema } from '@/validators/feed.validator';
-import FeedController from '@/controllers/feed.controller';
 
 class FeedRoutes implements Routes {
     public path = '/feed';
@@ -28,12 +28,8 @@ class FeedRoutes implements Routes {
          *     - Feed
          *     summary: Get the feed
          *     parameters:
-         *     - $ref: '#/components/parameters/format'
-         *     - in: query
-         *       name: feed
-         *       description: The feed to get
-         *       schema:
-         *         type: string
+         *     - $ref: '#/components/parameters/feedFormat'
+         *     - $ref: '#/components/parameters/feedId'
          *     responses:
          *       200:
          *         description: The feed
@@ -46,7 +42,7 @@ class FeedRoutes implements Routes {
          *       422:
          *         $ref: '#/components/responses/errorValidate'
          *       500:
-         *         description: Invalid feed
+         *         description: Internal server error
          *         content:
          *           application/json:
          *             schema:
@@ -54,8 +50,8 @@ class FeedRoutes implements Routes {
          */
         this.router.get(
             `${this.path}/:feed`,
-            validate(feedIdSchema, 'params'),
-            validate(feedFormatSchema, 'query'),
+            validate(feedIdSchema),
+            validate(feedFormatSchema),
             this.controller.getFeed
         );
     }
