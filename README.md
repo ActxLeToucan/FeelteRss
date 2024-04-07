@@ -1,5 +1,18 @@
 # FeelteRss
 
+> [!WARNING]
+> Ce projet n'est plus maintenu.
+>
+> *FellteRss* est ma troisième tentative de filtrer des flux RSS, la seule aboutie. J'avais réalisé ce petit projet car j'utilisais un agrégateur RSS qui faisait payer l'option de filtrage.
+> Je suis passé sur une instance [FreshRSS](https://github.com/FreshRSS/FreshRSS), qui me permet de filtrer les flux RSS, donc je ne me servais plus de *FeelteRss*.
+
+## Fonctionnalités
+* Filtrer un flux RSS/Atom par un ensemble de règles
+* Grouper plusieurs flux RSS/Atom en un seul
+* Récursivité : il est possible de filtrer un flux déjà filtré ou un flux groupé, puis de le grouper avec un autre et de filtrer...
+* CMS headless pour gérer tout ça
+* Format de sorti du flux : RSS, Atom ou JSON
+
 ## Développement
 ### Configuration de l'environnement
 Dupliquer le fichier [`.env.dist`](.env.dist) en `.env`.\
